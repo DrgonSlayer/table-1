@@ -5,11 +5,11 @@ import pandas as pd
 import sqlite3
 conn = sqlite3.connect('mydatabase.db')
 c = conn.cursor()
-c.execute("insert or replace into Filmlocation(stu, name, major) values(5, 'tomas', 'math')")
+c.execute("insert or replace into student-details(stu, name, major) values(5, 'tomas', 'math')")
 conn.commit()
-c.execute('''create table FilmLocation(stu INT,name VARCHAR(20),major VARCHAR(20),primary key(stu))
+c.execute('''create table student-details(stu INT,name VARCHAR(20),major VARCHAR(20),primary key(stu))
              ''')
-df = pd.read_sql("Select * From FilmLocation", conn)
+df = pd.read_sql("Select * From student-details", conn)
 
 app = Dash(__name__)
 
